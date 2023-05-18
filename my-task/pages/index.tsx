@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React, { useEffect, useRef, useState } from "react";
-import { getTrendingData, sortArray, Order, paginateArray } from "../utils/utils";
+import { findTrendingValue, sortArray, Order, paginateArray } from "../utils/utils";
 import {
   Select,
   MenuItem,
@@ -101,7 +101,7 @@ const Home: React.FC = () => {
   const handleTrendsSelected = (event: React.ChangeEvent<{ value: string }>) => {
     const value = event.target.value;
     if (raw) {
-      const trendingData = getTrendingData(raw, value);
+      const trendingData = findTrendingValue(raw, value);
       generateChartData(value)
       setTrendingData(trendingData);
     }
@@ -148,7 +148,7 @@ const Home: React.FC = () => {
   const generateChartData = (trendType: string = "HighestCost") => {
     const chartLabels: string[] = [];
     const chartData: number[] = [];
-  console.log('trendType',trendType)
+
     raw.forEach((item: any) => {
       chartLabels.push(item.Date);
       switch (trendType) {
@@ -168,7 +168,7 @@ const Home: React.FC = () => {
           break;
       }
     });
-  console.log(chartData)
+
     setChartData({
       labels: chartLabels,
       datasets: [
@@ -194,7 +194,7 @@ const Home: React.FC = () => {
   
       // Implement further action based on the selected data
       // For example, you can display a modal or update a state variable to show additional information
-      console.log(selectedData);
+  
       alert(`Selected Value: ${selectedData}`);
     }
   };
