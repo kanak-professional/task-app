@@ -1,0 +1,25 @@
+.main {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 6rem;
+  min-height: 100vh;
+}
+
+.select{
+  height: 30px;
+  width: 20%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.tableStyle{
+  border: 1px solid black;
+  width: 100%;
+  text-align: left;
+  margin-top: 15px
+}
+
+.thStyle{
+  padding: 8px;
+}
